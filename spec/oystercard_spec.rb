@@ -18,5 +18,9 @@ describe Oystercard do
     # expect(subject.top_up(5)).to eq 5
   end
 
+  it "maximum limit reached" do
+    expect{ subject.top_up(100) }.to raise_error "Maximum limit of #{Oystercard::LIMIT} has been reached"
+  end
+
 end
 
